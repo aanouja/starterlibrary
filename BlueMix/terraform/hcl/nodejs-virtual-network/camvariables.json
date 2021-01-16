@@ -23,7 +23,7 @@
         "description": "Softlayer datacenter where infrastructure resources will be deployed",
         "hidden": false,
         "immutable": false,
-        "label": "SoftLayer Data Center",
+        "label": "SoftLayer Data Center Amine",
         "name": "datacenter",
         "required": true,
         "secured": false,
