@@ -1,0 +1,29 @@
+{
+  "input_datatypes": [
+    {
+      "name": "ibm-cloud-datacenter",
+      "label": "IBM Cloud Datacenter"
+    }
+  ],
+
+  "input_groups": [
+    {
+      "name": "virtualmachine",
+      "label": "Virtual Machine Input Variables"
+    }
+  ],
+
+  "template_input_params": [
+    {
+      "name": "dc",
+      "type": "string",
+      "group_name": "virtualmachine",
+      "hidden": false,
+      "description": "IBM Cloud Datacenter",
+      "default": "${ibm-cloud-datacenter.id}",
+      "label": "IBM Cloud Datacenter",
+      "secured": false,
+      "required": false
+    }
+  ]
+}
