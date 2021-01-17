@@ -18,7 +18,7 @@
       "name": "dc",
       "type": "string",
       "group_name": "virtualmachine",
-      "hidden": false,
+      "hidden": true,
       "description": "IBM Cloud Datacenter",
       "default": "${ibm-cloud-datacenter.id}",
       "label": "IBM Cloud Datacenter",
