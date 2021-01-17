@@ -1,5 +1,5 @@
 {
-  "input_dataobjects": [
+  "input_datatypes": [
     {
       "name": "ibm-cloud-datacenter",
       "label": "IBM Cloud Datacenter"
