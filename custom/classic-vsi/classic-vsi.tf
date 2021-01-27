@@ -31,6 +31,6 @@ resource "ibm_compute_vm_instance" "vm1" {
 
 # output "user" {
 #   value = data.ibm_iam_users.users_profiles.users
-# }
+# }  ##
 
 
