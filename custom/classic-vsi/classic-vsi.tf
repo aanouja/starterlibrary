@@ -26,6 +26,13 @@ resource "ibm_compute_vm_instance" "vm1" {
     ssh_key_ids          = ["${ibm_compute_ssh_key.cam_public_key.id}"]
 }
 
+#########################################################
+# Output
+#########################################################
+output "nodejs_server_ip_address" {
+  value = "${ibm_compute_vm_instance.vm1.ipv4_address}"
+}
+
 # data "ibm_iam_users" "users_profiles"{
 # }
 
