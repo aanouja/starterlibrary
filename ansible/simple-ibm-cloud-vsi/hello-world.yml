@@ -1,5 +1,5 @@
-gather_facts: True
 - name: Hello World Sample
+  gather_facts: True
   hosts: all
   tasks:
     - name: Hello Message
