@@ -3,6 +3,10 @@
     {
       "name": "ibm-cloud-datacenter",
       "label": "IBM Cloud Datacenter"
+    },
+    {
+      "name": "ssh-key",
+      "label": "SSH Key"
     }
   ],
 
@@ -18,16 +22,14 @@
       "required": false
     },
     {
-      "description": "Public SSH key used to connect to the virtual guest; Allow the openSSH format key with optional comment (with optional email)",
-      "hidden": false,
-      "immutable": false,
-      "label": "Public SSH Key",
       "name": "public_ssh_key",
-      "required": true,
-      "secured": false,
       "type": "string",
-      "regex": "^ssh-rsa AAAA[0-9A-Za-z+/]+[=]{0,3}( [^@]+@[^@]+| [^@]+){0,1}$",
-      "group": "virtualmachine"
-  }
+      "hidden": true,
+      "description": "IBM Cloud Datacenter",
+      "default": "${ssh-key.public}",
+      "label": "IBM Cloud Datacenter",
+      "secured": false,
+      "required": false
+    }
   ]
 }
