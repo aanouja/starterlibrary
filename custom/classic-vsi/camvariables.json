@@ -25,9 +25,9 @@
       "name": "public_ssh_key",
       "type": "string",
       "hidden": true,
-      "description": "IBM Cloud Datacenter",
+      "description": "Public SSH Key",
       "default": "${ssh-key.public}",
-      "label": "IBM Cloud Datacenter",
+      "label": "Public SSh Key",
       "secured": false,
       "required": false
     }
