@@ -1,5 +1,11 @@
 {
   "terraform_version": "~> 0.12.0",
+  "input_datatypes": [
+    {
+      "name": "vsphere_managed_inventory_definition",
+      "label": "vSphere Managed Inventory Definition"
+    }
+  ],
   "template_input_params": [
     {
       "name": "admin_password",
@@ -10,7 +16,7 @@
       "label": "admin_password",
       "hidden": false,
       "immutable": false,
-      "default": ""
+      "default": "${vsphere_managed_inventory_definition.vm_os_password}"
     },
     {
       "name": "dependsOn",
@@ -35,6 +41,7 @@
     },
     {
       "name": "hostName",
+      "default": ["demovmwin"],
       "description": "VM hostanme",
       "type": "list",
       "required": true,
@@ -46,7 +53,7 @@
     {
       "name": "vm_adapter_type",
       "description": "Network adapter type for vNIC Configuration",
-      "default": "vmxnet3",
+      "default": "${vsphere_managed_inventory_definition.adapter_type}",
       "type": "string",
       "required": true,
       "secured": false,
@@ -56,6 +63,7 @@
     },
     {
       "name": "vm_disk1_datastore",
+      "default":"${vsphere_managed_inventory_definition.datastore}",
       "description": "Data store or storage cluster name for target virtual machine's disks",
       "type": "string",
       "required": true,
@@ -67,7 +75,7 @@
     {
       "name": "vm_disk1_keep_on_remove",
       "description": "Delete template disk volume when the virtual machine is deleted",
-      "default": "false",
+      "default": "true",
       "type": "string",
       "required": true,
       "secured": false,
@@ -87,6 +95,7 @@
     },
     {
       "name": "vm_dns_servers",
+      "default":"${vsphere_managed_inventory_definition.dns_servers}",
       "description": "DNS servers for the virtual network adapter",
       "type": "list",
       "required": true,
@@ -97,6 +106,7 @@
     },
     {
       "name": "vm_folder",
+      "default":"${vsphere_managed_inventory_definition.vm_folder}",
       "description": "Target vSphere folder for virtual machine",
       "type": "string",
       "required": true,
@@ -118,6 +128,7 @@
     },
     {
       "name": "vm_ipv4_gateway",
+      "default":"${vsphere_managed_inventory_definition.vm_ipv4_gateway}",
       "description": "IPv4 gateway for vNIC configuration",
       "type": "string",
       "required": true,
@@ -128,6 +139,7 @@
     },
     {
       "name": "vm_ipv4_prefix_length",
+      "default":"${vsphere_managed_inventory_definition.vm_ipv4_netmask}",
       "description": "IPv4 prefix length for vNIC configuration. The value must be a number between 8 and 32",
       "type": "string",
       "required": true,
@@ -148,6 +160,7 @@
     },
     {
       "name": "vm_name",
+      "default": ["demovmwin"],
       "type": "list",
       "required": true,
       "secured": false,
@@ -158,7 +171,7 @@
     {
       "name": "vm_network_interface_label",
       "description": "vSphere port group or network label for virtual machine's vNIC",
-      "default": "VM Network",
+      "default":"${vsphere_managed_inventory_definition.network}",
       "type": "string",
       "required": true,
       "secured": false,
@@ -168,7 +181,8 @@
     },
     {
       "name": "vm_template",
-      "description": "Target vSphere folder for virtual machine",
+      "default":"${vsphere_managed_inventory_definition.vm_image_template}",
+      "description": "Target vSphere template for virtual machine",
       "type": "string",
       "required": true,
       "secured": false,
@@ -189,6 +203,7 @@
     },
     {
       "name": "vsphere_datacenter",
+      "default":"${vsphere_managed_inventory_definition.datacenter}",
       "description": "Target vSphere datacenter for virtual machine creation",
       "type": "string",
       "required": true,
@@ -199,6 +214,7 @@
     },
     {
       "name": "vsphere_resource_pool",
+      "default":"${vsphere_managed_inventory_definition.resource_pool}",
       "description": "Target vSphere Resource Pool to host the virtual machine",
       "type": "string",
       "required": true,
